@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ansible Tasks{% endblock %}
+
+{% block body %}
+    <ul class="list-group list-group-flush ml-auto mr-auto col-lg-4 col-md-6 col-sm-12 text-center">
+        {% for element in ansibleTasks %}
+        <a class="list-group-item" href="?ansibleTask={{ element }}">{{ element }}</a>
+        {% endfor %}
+    </ul>
+{% endblock %}

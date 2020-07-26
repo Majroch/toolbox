@@ -1,0 +1,23 @@
+{
+  "name": "toolkit",
+  "authors": [
+    "Majroch <jakuboch4@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "fontawesome": "^5.14.0"
+  }
+}

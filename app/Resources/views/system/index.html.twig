@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}System Status{% endblock %}
+
+{% block body %}
+    <div id="system_status"></div>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{{ asset("scripts/system_monitoring.js") }}"></script>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ asset("css/table.css") }}" />
+{% endblock %}

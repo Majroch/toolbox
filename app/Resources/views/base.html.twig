@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome in ToolBox!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset("vendor/fontawesome/css/all.min.css") }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset("vendor/bootstrap/dist/css/bootstrap.min.css") }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset("css/style.css") }}" />
+        {% block css %}{% endblock %}
+    </head>
+    <body>
+        <!-- ######## NAVBAR ########## -->
+        <div class="navbar navbar-dark bg-dark navbar-expand-md">
+            <a href="{{ url("homepage") }}" class="navbar-brand">
+                <i class="fas fa-toolbox"></i> Toolbox
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Otwórz/Zamknij Navbar">
+                <i class="far fa-caret-square-down"></i>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarCollapse">
+                <div class="mr-auto navbar-nav">
+                    <!-- Items -->
+                    <div class="nav-item">
+                        <a class="nav-link" href="{{ url("homepage") }}">Strona główna</a>
+                    </div>
+                    
+                    <div class="nav-item">
+                        <a class="nav-link" href="{{ url("ansiblepage") }}">Ansible Tasks</a>
+                    </div>
+                    
+                    <div class="nav-item">
+                        <a class="nav-link" href="{{ url("systemstatuspage") }}">System Status</a>
+                    </div>
+                    
+                    <div class="nav-item">
+                        <a class="nav-link" href="">File Uploads</a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a class="nav-link" href="{{ url("debugpage") }}">Debug</a>
+                    </div>
+                    <!-- Items END -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ######## FLASHBAGS ########## -->
+        {% for message in app.session.flashbag.get('error') %}
+            <div class="container content">
+                <div class="alert alert-danger">Error: {{ message }}</div>
+            </div>
+        {% endfor %}
+        {% for message in app.session.flashbag.get('warning') %}
+        <div class="container content">
+            <div class="alert alert-warning">Warning: {{ message }}</div>
+        </div>
+        {% endfor %}
+        {% for message in app.session.flashbag.get('success') %}
+        <div class="container content">
+            <div class="alert alert-success">Success: {{ message }}</div>
+        </div>
+        {% endfor %}
+
+        <!-- ######## CONTENT ########## -->
+        <div class="container content">
+            {% block body %}{% endblock %}
+        </div>
+
+        <!-- ######## FOOTER ########## -->
+        <footer class="page-footer font-small bg-dark text-white">
+            <div class="footer-copyright text-center py-3">
+                <i class="fas fa-toolbox"></i> Toolbox &copy; 2020 Copyright: <a href="https://majroch.pl"> majroch.com</a>
+            </div>
+        </footer>
+
+
+        <script src="{{ asset("vendor/jquery/dist/jquery.min.js") }}"></script>
+        <script src="{{ asset("vendor/fontawesome/js/all.min.js") }}"></script>
+        <script src="{{ asset("vendor/bootstrap/dist/js/bootstrap.min.js") }}"></script>
+        {% block javascript %}{% endblock %}
+    </body>
+</html>
