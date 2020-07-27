@@ -40,7 +40,7 @@ class SystemInfoService {
 
     public function getCpu() : string {
         $output = exec("lscpu | grep Model | tail -n1");
-        $output = explode("  ", $output);
+        $output = explode("                      ", $output);
         return $output[sizeof($output)-1];
     }
 
